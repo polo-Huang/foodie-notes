@@ -1,0 +1,25 @@
+.banner {
+  height: 500px;
+  background-color: #876;
+}
+
+#myCarousel {
+  background-color: #fff;
+  padding: 0;
+  border: none;
+}
+
+#myCarousel img {
+  width: 100%;
+}
+
+#myCarousel .slide_right{
+  right: 0;
+  left: auto;
+}
+
+.restaurants .one {
+  background-color: #fff;
+  width: 150px;
+  height: auto;
+}
