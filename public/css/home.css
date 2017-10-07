@@ -20,6 +20,10 @@
 
 .restaurants .one {
   background-color: #fff;
-  width: 150px;
+  width: 300px;
   height: auto;
+}
+
+.restaurants .one img {
+  width: 100%;
 }

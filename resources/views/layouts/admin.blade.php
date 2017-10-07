@@ -9,6 +9,7 @@
         <link href="{{ asset('bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="{{ asset('font-awesome/css/font-awesome.min.css') }}" media="screen">
         <link rel="stylesheet" href="{{ asset('css/common.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/admin/admin.css') }}">
 
         <!-- CSS And JavaScript -->
         @yield('link')
@@ -19,11 +20,8 @@
             <div class="row">
                 <nav class="header_nav">
                     <!-- Navbar Contents -->
-                    <a class="logo" href="{{ url('/') }}">Foodie Notes</a>
-                    <a class="address" href="">[ 深圳 ]</a>
-                    <a class="pull-right nav_bar" href="">联系我们</a>
-                    <a class="pull-right nav_bar" href="">登录</a>
-                    <a class="pull-right nav_bar btn btn-success" href="{{ url('/admin/index') }}">admin</a>
+                    <a class="logo" href="{{ url('/admin/index') }}">Foodie Notes Manage</a>
+                    <a class="pull-right nav_bar" href="{{ url('/') }}">前台</a>
                 </nav>
             </div>
         </div>

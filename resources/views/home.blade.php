@@ -41,9 +41,12 @@
             </a>
         </div>
         <div class="restaurants">
+        @foreach($stores as $key => $value)
             <div class="one">
                 <img class="restaurants-icon center-block" src="{{ url('/image/restaurant-icon.png') }}">
+                <p>{{ $value->name }}</p>
             </div>
+        @endforeach
         </div>
     </div>
     @include('layouts.footer')
