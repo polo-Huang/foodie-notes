@@ -1,15 +1,15 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\admin;
 
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Store;
 use App\Banner;
+use App\System;
 
-class HomeController extends Controller
+class IndexController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,10 +19,24 @@ class HomeController extends Controller
     public function index()
     {
         //搜索首页数据
-        $stores = Store::get();
         $banners = Banner::get();
-        // dd($banners);
-        return view('home', ['stores' => $stores, 'banners' => $banners]);
+        $system = System::first();
+        // dd($system);
+        return view('admin/index', ['banners' => $banners, 'system' => $system]);
+    }
+
+    /**
+     * 修改系统配置
+     */
+    public function editSystem(Request $request)
+    {
+        $data = $request->all();
+        // dd($data);
+        $system = System::first();
+        $system->name = $data['name'];
+        $return = $system->save();
+        $return ? flash('系统配置成功！', 'success')->important() : flash('系统配置失败！请稍后重试', 'warning')->important();
+        return $return ? redirect('admin/index') : redirect()->back();
     }
 
     /**
@@ -53,17 +67,6 @@ class HomeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
     {
         //
     }

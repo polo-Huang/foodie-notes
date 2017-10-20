@@ -15,6 +15,11 @@ Route::get('/', 'HomeController@index');
 
 //admin
 
-Route::get('/admin/index', function(){
-    return view('admin/index');
+Route::get('/admin/index', 'admin\IndexController@index');
+Route::post('/admin/editSystem', 'admin\IndexController@editSystem');
+Route::get('/admin/user/index', function(){
+    return view('admin/user/index');
+});
+Route::get('/admin/store/index', function(){
+    return view('admin/store/index ');
 });

@@ -19,18 +19,12 @@
             </ol>   
             <!-- 轮播（Carousel）项目 -->
             <div class="carousel-inner">
-                <div class="item active">
-                    <img src="{{ url('/uploads/banners/1.png') }}" alt="First slide">
+            @foreach($banners as $key => $value)
+                <div class="item @if($key == '1') active @endif">
+                    <img src="{{ url('/uploads/banners/'.$value->path) }}" alt="First slide">
                     <!-- <div class="carousel-caption">标题 1</div> -->
                 </div>
-                <div class="item">
-                    <img src="{{ url('/uploads/banners/2.png') }}" alt="Second slide">
-                    <!-- <div class="carousel-caption">标题 2</div> -->
-                </div>
-                <div class="item">
-                    <img src="{{ url('/uploads/banners/3.png') }}" alt="Third slide">
-                    <!-- <div class="carousel-caption">标题 3</div> -->
-                </div>
+            @endforeach
             </div>
             <!-- 轮播（Carousel）导航 -->
             <a class="carousel-control" href="#myCarousel" 

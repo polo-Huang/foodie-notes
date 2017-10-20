@@ -1,0 +1,204 @@
+:root {
+  /*橙色*/
+  /*--first_color: #FA7D43;
+  --second_color: #F8884D;*/
+  /*蓝绿色*/
+  --first_color: #3DC3B4;
+  --second_color: #65CCBF;
+}
+
+.admin .container {
+  color: #333;
+}
+
+.admin .container h1 {
+  color: #000;
+  font-weight: 300;
+}
+
+.admin .container a {
+  color: var(--first_color);
+}
+
+.admin .container i {
+  color: var(--first_color);
+}
+
+.admin .container hr {
+  border: 2px solid var(--first_color);
+}
+
+.header_nav {
+  padding: 10px 0;
+  line-height: 34px;
+  /*background-color: #65CCBF;*/
+}
+
+.logo {
+  margin: 0 20px;
+}
+
+.header_nav .nav_bar {
+  margin-left: 10px;
+}
+
+.content {
+  background-color: #F5F5F5;
+}
+
+.margin-bottom10 {
+  margin-bottom: 10;
+}
+
+.restaurants-icon {
+  width: 100px;
+  height: auto;
+}
+
+.admin .content .footer_copy {
+  margin-top: 100px;
+  background-color: black;
+  color: #fff;
+  padding: 10px 0;
+  text-align: center;
+  background-color: var(--first_color);
+  /*text-indent: 50px;*/
+}
+
+.index_cards {
+  /*border: 2px solid var(--first_color);*/
+  background-color: #fff;
+  border-radius: 4px;
+}
+
+.index_cards div {
+  margin: 20px 0;
+  padding: 0;
+  text-align: center;
+}
+
+.site_info {
+  margin-top: 20px;
+  background-color: #fff;
+  padding: 30px 40px;
+}
+
+.site_info dt{
+  margin-bottom: 20px;
+}
+
+.site_info dd {
+  margin-bottom: 4px;
+}
+
+/*common*/
+
+/*tab*/
+.nav-tab {
+  text-align: right;
+}
+
+.nav-tab a {
+  display: inline-block;
+  padding: 15px 30px;
+  margin: 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.42857143;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-image: none;
+  border: 1px solid transparent;
+}
+.nav-tab a:hover {
+  text-decoration:none;
+  background-color: #F5F5F5;
+}
+.nav-tab .active {
+  text-decoration:none;
+  background-color: #F5F5F5;
+}
+
+/*btn*/
+/*btn-cool*/
+.admin .container .btn-cool {
+  display: inline-block;
+  padding: 6px 24px;
+  margin: 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.42857143;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+.admin .container .btn-one:hover {
+  text-decoration:none;
+  background-color: var(--second_color);
+}
+.admin .container .btn-one {
+  color: #fff;
+  background-color: var(--first_color);
+}
+/*btn-card*/
+.admin .container .btn-card {
+  display: inline-block;
+  margin: 0;
+  width: 270px;
+  height: 190px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 180px;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+.admin .container .btn-card:hover {
+  text-decoration:none;
+  color: #fff;
+  background-color: var(--first_color);
+}
+
+/*color*/
+.b-color-fff {
+  background-color: #fff;
+}
+/*.color-first {
+  color: var(--first_color);
+}*/
+
+/*posittion*/
+.margin-bottom-30 {
+  margin-bottom: 30px;
+}
+.padding-20 {
+  padding: 20px;
+}
