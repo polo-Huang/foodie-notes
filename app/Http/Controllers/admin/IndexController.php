@@ -19,7 +19,7 @@ class IndexController extends Controller
     public function index()
     {
         //搜索首页数据
-        $banners = Banner::get();
+        $banners = Banner::orderBy('position', 'asc')->get();
         $system = System::first();
         // dd($system);
         return view('admin/index', ['banners' => $banners, 'system' => $system]);
@@ -38,6 +38,18 @@ class IndexController extends Controller
         $return ? flash('系统配置成功！', 'success')->important() : flash('系统配置失败！请稍后重试', 'warning')->important();
         return $return ? redirect('admin/index') : redirect()->back();
     }
+
+    /**
+     * 修改系统配置
+     */
+    public function addBanner(Request $request)
+    {
+        $data = $request->all();
+        // dd($data);
+        $return = Banner::create($data);
+        return $return ? redirect('admin/index') : redirect()->back();
+    }
+
 
     /**
      * Show the form for creating a new resource.

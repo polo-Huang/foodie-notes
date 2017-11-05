@@ -60,43 +60,20 @@
                     @endforeach
                 </table>
             </div>
-            <div class="panel-body ">
-                <form name="system" method="post" action="{{ url('/admin/bannerForm') }}">
+            <div class="panel-body panel_form">
+                <form name="system" method="post" action="{{ url('/admin/addBanner') }}">
                     <div class="form-group row">
                         <label for="path" class="col-sm-3 input-label">横图&nbsp;Banner&nbsp;<span class="color-must">*</span></label>
                         <div class="col-sm-9">
-                            <!-- <span class="form-file file-image btn-cool btn-two">
-                                <span>upload</span>
-                                <input type="file" name="path">
-                            </span> -->
-                            <a href="javascript:;" class="a-upload">
-                                <input type="file" name="" id="">点击这里上传文件
-                            </a>
-
-                            <a href="javascript:;" class="file">选择文件
-                                <input type="file" name="" id="">
-                            </a>
+                            <input name="path" type="file">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="position" class="col-sm-3 input-label">位置&nbsp;Position&nbsp;<span class="color-must">*</span></label>
                         <div class="col-sm-9">
-                            <div class="form-radio radio-number">
-                                <input type="radio" name="position" value="1">
-                                <span>1</span>
-                            </div>
-                            <div class="form-radio radio-number">
-                                <input type="radio" name="position" value="2">
-                                <span>2</span>
-                            </div>
-                            <div class="form-radio radio-number">
-                                <input type="radio" name="position" value="3">
-                                <span>3</span>
-                            </div>
-                            <div class="form-radio radio-number">
-                                <input type="radio" name="position" value="4">
-                                <span>4</span>
-                            </div>
+                        @for($i = 1; $i - 1 <= $banners->count(); $i++)
+                            {{ $i }}&nbsp;<input type="radio" name="position" value="{{ $i }}">&nbsp;
+                        @endfor
                         </div>
                     </div>
                     <input type="submit" value="提交" class="form-submit">
