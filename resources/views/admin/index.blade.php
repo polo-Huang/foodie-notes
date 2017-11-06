@@ -6,11 +6,16 @@
 
 @section('link')
     <link rel="stylesheet" href="{{ asset('css/admin/index.css') }}">
+    <link rel="stylesheet" href="{{ asset('dragula/dragula.css') }}">
+    <script src="{{ asset('dragula/dragula.js') }}"></script>
+    <script src="{{ asset('js/admin/index.js') }}"></script>
+    <meta name="_token" content="{!! csrf_token() !!}"/>
 @endsection
 
 @section('content')
     <div class="admin_index">
 
+        <input type="hidden" name="del_banner_confirm" value="确定要删除该banner">
         @include('flash::message')
         <div class="panel panel-default site_info margin-bottom-30">
             <div class="panel-heading">
@@ -24,7 +29,7 @@
                 </dl>
             </div>
             <div class="panel-body panel_form">
-                <form name="system" method="post" action="{{ url('/admin/editSystem') }}">
+                <form name="system" method="post" action="{{ url('/admin/index/editSystem') }}">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                     <div class="form-group row">
                         <label for="name" class="col-sm-3 input-label">站名&nbsp;Site Name&nbsp;<span class="color-must">*</span></label>
@@ -44,28 +49,37 @@
             </div>
             <div class="panel-body panel_show">
                 <table>
-                    <tr class="title">
-                        <td>#</td>
-                        <td>img</td>
-                        <td>position</td>
-                        <td>action</td>
-                    </tr>
+                    <thead>
+                        <tr class="title">
+                            <td>#</td>
+                            <td>img</td>
+                            <td>position</td>
+                            <td>action</td>
+                        </tr>
+                    </thead>
+                    <tbody id="dragula_banner">
                     @foreach($banners as $key => $value)
-                    <tr>
-                        <td>{{ $key + 1 }}</td>
-                        <td><a href="{{ url('uploads/banners/'.$value->path) }}" target="_block"><img src="{{ url('uploads/banners/'.$value->path) }}"></a></td>
-                        <td>{{ $value->position }}</td>
-                        <td><a class="" href=""><i class="fa fa-edit"></i></a>&nbsp;&nbsp;&nbsp;<a class="" href=""><i class="fa fa-trash-o"></i></a></td>
-                    </tr>
+                        <tr class="banner_element" banner_id="{{ $value->id }}">
+                            <td>{{ $key + 1 }}</td>
+                            <td><a href="{{ url('uploads/banners/'.$value->path) }}" target="_block"><img src="{{ $value->path }}"></a></td>
+                            <td>{{ $value->position }}</td>
+                            <td>
+                                <a class="ajax-a btn_edit_banner"><i class="fa fa-edit"></i></a>&nbsp;&nbsp;&nbsp;
+                                <a class="ajax-a btn_del_banner" banner_id="{{ $value->id }}"><i class="fa fa-trash-o"></i></a>&nbsp;&nbsp;&nbsp;
+                                <a class="move-a"><i class="fa fa-mouse-pointer"></i></a>
+                            </td>
+                        </tr>
                     @endforeach
+                    </tbody>
                 </table>
             </div>
             <div class="panel-body panel_form">
-                <form name="system" method="post" action="{{ url('/admin/addBanner') }}">
+                <form name="system" method="post" action="{{ url('/admin/index/addBanner') }}" enctype="multipart/form-data">
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                     <div class="form-group row">
                         <label for="path" class="col-sm-3 input-label">横图&nbsp;Banner&nbsp;<span class="color-must">*</span></label>
                         <div class="col-sm-9">
-                            <input name="path" type="file">
+                            <input name="path" type="file" id="file">
                         </div>
                     </div>
                     <div class="form-group row">

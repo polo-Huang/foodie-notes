@@ -17,9 +17,13 @@ Route::get('/', 'HomeController@index');
 
 Route::get('/admin/index', 'admin\IndexController@index');
 
-Route::post('/admin/editSystem', 'admin\IndexController@editSystem');
+Route::post('/admin/index/editSystem', 'admin\IndexController@editSystem');
 
-Route::post('/admin/addBanner', 'admin\IndexController@addBanner');
+Route::post('/admin/index/addBanner', 'admin\IndexController@addBanner');
+
+Route::post('/admin/index/delBanner', 'admin\IndexController@delBanner');
+
+Route::post('/admin/index/updateBannersPosition', 'admin\IndexController@updateBannersPosition');
 
 Route::get('/admin/user/index', function(){
     return view('admin/user/index');

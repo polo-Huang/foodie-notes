@@ -161,6 +161,14 @@ body {
   background-color: #F5F5F5;
 }
 
+/*a*/
+.ajax-a {
+  cursor: pointer;
+}
+.move-a {
+  cursor: move;
+}
+
 /*btn*/
 /*btn-cool*/
 .admin .btn-cool {
@@ -268,6 +276,7 @@ table .title {
 }
 table img {
   max-width: 500px;
+  max-height: 100px;
 }
 
 /*panel*/
