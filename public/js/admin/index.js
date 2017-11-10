@@ -1,7 +1,13 @@
 $(document).ready(function(){
     // console.log(1);
     var banner = document.getElementById('dragula_banner');
-    var drake = dragula([banner]).on('moves');
+
+    var drake = dragula([banner],{
+        moves: function(el, source, handle, sibling){
+            // console.log($(handle).attr('id'));
+            return $(handle).attr('id') == 'move-a' ? true : false;
+        }
+    });
 
     drake.on('drop', function(el, target, source, sibling){
         // console.log(el);
@@ -23,7 +29,7 @@ $(document).ready(function(){
             dataType: 'json',
             success: function(result){
                 if (result.success) {
-                    location.reload();
+                    // location.reload();
                 } else {
                     alert(result.msg);
                 }

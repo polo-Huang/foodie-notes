@@ -283,7 +283,7 @@ table img {
 .panel {
 
 }
-.panel_form {
+.panel-form {
   display: none;
 }
 
@@ -302,9 +302,6 @@ table img {
   background-image: none;
   border: 1px solid #ccc;
   border-radius: 4px;
-}
-.input-label {
-
 }
 
 /*.form-radio {

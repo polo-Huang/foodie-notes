@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Banner;
 use App\System;
+use Validator;
 
 class IndexController extends Controller
 {
@@ -21,7 +22,7 @@ class IndexController extends Controller
         //搜索首页数据
         $banners = Banner::orderBy('position', 'asc')->get();
         $system = System::first();
-        // dd($system);
+        // dd(empty($errors));
         return view('admin/index', ['banners' => $banners, 'system' => $system]);
     }
 
@@ -46,6 +47,14 @@ class IndexController extends Controller
     {
         $data = $request->all();
         // dd($request->file('path'));
+        $validator = Validator::make($data, ['path' => 'required', 'position' => 'required']);
+        if ($validator->fails()) {
+            return redirect()
+            ->back()
+            ->withInput()
+            ->withErrors($validator->errors());
+        }
+
         if ($request->hasFile('path')) {
             $data['path'] = $this->storeImage($data['path']);
         }
